@@ -1,352 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saurabh Pitambar Suryawanshi | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
 
-  <!-- Berkshire Swash font -->
-  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0a0a0a, #1e1e1e);
-      color: #ffffff;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-      animation: backgroundFade 10s ease-in-out infinite alternate;
-    }
-    @keyframes backgroundFade {
-      0% { background: linear-gradient(135deg, #0a0a0a, #1e1e1e); }
-      100% { background: linear-gradient(135deg, #1e1e1e, #0a0a0a); }
-    }
-
-    .scrolling-line {
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      background-color: #111;
-      color: #00e5ff;
-      font-size: 0.9em;
-      padding: 6px 0;
-      position: relative;
-    }
-    .scrolling-line span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scrollText 25s linear infinite;
-    }
-    @keyframes scrollText {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    nav {
-      background-color: #111;
-      padding: 12px 24px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-    }
-    nav a {
-      padding: 10px 18px;
-      border-radius: 12px;
-      color: #00e5ff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      background: rgba(0, 229, 255, 0.1);
-      backdrop-filter: blur(4px);
-    }
-    nav a:hover,
-    nav a.active {
-      background: #00e5ff;
-      color: #000;
-      box-shadow: 0 0 10px #00e5ff;
-    }
-
-header {
-  padding: 80px 20px;
-  font-size: 2.8em;
-  text-align: center;
-  color: #ffffff;
-  font-family: 'Berkshire Swash', cursive;
-  font-weight: bold;
-  background: linear-gradient(-45deg, #00e5ff, #00ffcc, #111, #1e1e1e);
-  background-size: 400% 400%;
-  animation: cyberWaves 10s ease infinite;
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
 }
 
-@keyframes cyberWaves {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-    section {
-      padding: 60px 20px;
-      max-width: 960px;
-      margin: auto;
-      animation: fadeInUp 1s ease;
-    }
-
-    h2 {
-      color: #00ffcc;
-      display: inline-block;
-      border-bottom: 2px solid #00ffcc;
-      padding-bottom: 8px;
-      margin-bottom: 30px;
-      font-size: 1.8em;
-      font-family: 'Berkshire Swash', cursive;
-    }
-
-    .star {
-      font-size: 0.5em;
-      margin-right: 6px;
-      vertical-align: middle;
-    }
-
-    .project-wrapper {
-      position: relative;
-      height: 600px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .project-card {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      padding: 25px;
-      background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
-      border-radius: 50%;
-      box-shadow: 0 0 30px rgba(0, 255, 204, 0.3);
-      opacity: 0;
-      transform: scale(0.8);
-      transition: 0.6s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      animation: zoomFade 1s ease forwards;
-    }
-    @keyframes zoomFade {
-      from { transform: scale(0.5); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    .project-card.active {
-      opacity: 1;
-      transform: scale(1);
-      z-index: 2;
-    }
-    .project-card.side {
-      opacity: 0.15;
-      transform: scale(0.6);
-      z-index: 1;
-    }
-
-    .nav-buttons {
-      position: absolute;
-      width: 100%;
-      top: 50%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 40px;
-      box-sizing: border-box;
-    }
-    .nav-buttons button {
-      background-color: #00e5ff;
-      border: none;
-      padding: 14px 24px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 1em;
-      font-weight: 600;
-      color: #000;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-    }
-    .nav-buttons button:hover {
-      background-color: #00cde0;
-      transform: scale(1.05);
-    }
-
-    section#contact a {
-      color: #00ffff;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    section#contact a:hover {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      background-color: #111;
-      border-top: 2px solid #333;
-      font-size: 0.95em;
-      color: #888;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      .project-card {
-        width: 220px;
-        height: 220px;
-        padding: 16px;
-      }
-    }
-    .project-card.animate {
-  animation: pulseZoom 0.6s ease;
+body{
+  background:#0f172a;
+  color:white;
+  overflow-x:hidden;
+  transition:0.4s;
 }
 
-@keyframes pulseZoom {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(0, 255, 204, 0);
-  }
-  50% {
-    transform: scale(1.1);
-    box-shadow: 0 0 30px rgba(0, 255, 204, 0.6);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
-  }
+/* 🌗 LIGHT MODE FIX */
+body.light{
+  background:#f1f5f9;
+  color:#0f172a;
 }
 
-  </style>
+/* 🔥 Animated Background */
+body::before{
+  content:"";
+  position:fixed;
+  width:200%;
+  height:200%;
+  top:-50%;
+  left:-50%;
+  background:linear-gradient(45deg,#38bdf8,#8b5cf6,#22d3ee,#38bdf8);
+  background-size:400% 400%;
+  animation:gradientFlow 15s ease infinite;
+  opacity:0.2;
+  filter:blur(100px);
+  z-index:-2;
+}
+
+@keyframes gradientFlow{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Grid */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size:40px 40px;
+  z-index:-1;
+}
+
+/* Header */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 30px;
+  backdrop-filter:blur(20px);
+  background:rgba(255,255,255,0.05);
+}
+
+/* Nav Cards */
+nav{
+  display:flex;
+  gap:15px;
+}
+
+.nav-card{
+  padding:10px 18px;
+  border-radius:15px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.1);
+  text-decoration:none;
+  color:inherit;
+  transition:0.3s;
+}
+
+.nav-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 15px rgba(56,189,248,0.4);
+}
+
+/* ✅ TOGGLE BUTTON FIXED */
+.toggle-btn{
+  width:55px;
+  height:28px;
+  background:#38bdf8;
+  border-radius:50px;
+  position:relative;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  padding:3px;
+}
+
+.toggle-circle{
+  width:22px;
+  height:22px;
+  background:white;
+  border-radius:50%;
+  transition:0.3s;
+}
+
+/* move circle */
+body.light .toggle-circle{
+  transform:translateX(27px);
+}
+
+/* Hero */
+.hero{
+  height:90vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+.hero h2{
+  font-size:45px;
+}
+
+.hero span{
+  color:#38bdf8;
+}
+
+/* Sections */
+.section{
+  padding:60px 50px;
+}
+
+/* Grid */
+.projects,.blogs,.skills-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* Cards */
+.card{
+  padding:20px;
+  border-radius:20px;
+  backdrop-filter:blur(25px);
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.1);
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 0 30px rgba(56,189,248,0.3);
+}
+
+/* Lists */
+ul{
+  margin-top:10px;
+  padding-left:20px;
+}
+
+li{
+  margin:8px 0;
+}
+
+/* Button */
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 20px;
+  background:#38bdf8;
+  color:black;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:20px;
+  background:rgba(255,255,255,0.05);
+}
+
+</style>
 </head>
-<body>
-  <div class="scrolling-line">
-    <span>Saurabh Pitambar Suryawanshi | • Skills - Fusion360 , Arduino , Electronics , Laser Cutting , 3D Printing | • Projects - LED Blink With Arduino , ESP32 WiFi Car , Bluetooth Car , Phonograph , PCB Design | • Contact - saurabhsuryawansh31@gmail.com , @saurabh_art_29</span>
-  </div>
 
-  <header>SAURABH ✨</header>
+<body>
+
+<header>
+  <h2>My Portfolio</h2>
 
   <nav>
-    <a href="#about"><span>About</span></a>
-    <a href="#skills"><span>Skills</span></a>
-    <a href="#projects"><span>Projects</span></a>
-    <a href="#contact"><span>Contact</span></a>
+    <a href="#about" class="nav-card">About</a>
+    <a href="#skills" class="nav-card">Skills</a>
+    <a href="#projects" class="nav-card">Projects</a>
+    <a href="#blogs" class="nav-card">Blogs</a>
+    <a href="#contact" class="nav-card">Contact</a>
   </nav>
 
-  <section id="about">
-    <h2><span class="star">✦</span> About Me</h2>
-    <ul>
-      <li>I am currently a 12th-grade student at New English Junior College in Wardha, Maharashtra. For the past year, I have been actively participating in the Nalanda Abhiyan Lab where I've learned valuable skills in Arduino, ESP32, sensors, electronics, and design. I am passionate about electronics, creative crafting, and design work.</li>
-    </ul>
-  </section>
+  <!-- ✅ FIXED TOGGLE -->
+  <div class="toggle-btn" onclick="toggleMode()">
+    <div class="toggle-circle"></div>
+  </div>
+</header>
 
-  <section id="skills">
-    <h2><span class="star">✦</span> Skills</h2>
-    <ul>
-      <li>Fusion 360</li>
-      <li>Arduino Programming & Sensor Integration</li>
-      <li>ESP32 IoT Projects</li>
-      <li>Electronics</li>
-      <li>Crafting & Creative Design</li>
-      <li>Laser Cutting</li>
-      <li>3D Printing</li>
-    </ul>
-  </section>
+<section class="hero">
+  <h2>Hello, I'm <span>Saurabh</span></h2>
+  <p>Student | Creator | Innovator</p>
+  <a href="#projects" class="btn">View Work</a>
+</section>
 
-  <section id="projects">
-    <h2><span class="star">✦</span> Projects</h2>
-    <div class="project-wrapper">
-      <div class="project-card active" id="project0">
-        <strong>LED Blinking with Arduino</strong>
-        <p>Created a basic LED blinking circuit using Arduino UNO and simple programming logic.</p>
-      </div>
-      <div class="project-card side" id="project1">
-        <strong>Bluetooth Car with ESP32</strong>
-        <p>A wireless car controlled via Bluetooth and an Android app, using ESP32 and L298N motor driver.</p>
-      </div>
-      <div class="project-card side" id="project2">
-        <strong>Wi-Fi Controlled Car with ESP32</strong>
-        <p>ESP32-powered smart car that can be controlled through Android app</p>
-      </div>
-      <div class="project-card side" id="project3">
-        <strong>Homemade Phonograph</strong>
-        <p>A phonograph crafted using simple DIY methods and electronics.</p>
-      </div>
-      <div class="project-card side" id="project4">
-        <strong>3D Printing & Laser Cutting</strong>
-        <p>Worked with 3D printers and laser cutting to design and produce various custom objects and crafts.</p>
-      </div>
-      <div class="nav-buttons">
-        <button onclick="prevProject()">⟵ Prev</button>
-        <button onclick="nextProject()">Next ⟶</button>
-      </div>
+<section id="about" class="section">
+  <h2>About Me</h2>
+  <p>I build projects, write blogs, and explore futuristic ideas.</p>
+</section>
+
+<section id="skills" class="section">
+  <h2>Skills & Learning</h2>
+  <div class="skills-container">
+    <div class="card">
+      <h3>💡 Skills</h3>
+      <ul>
+        <li>Arduino & Electronics</li>
+        <li>3D Printing</li>
+        <li>Fusion360</li>
+        <li>Sketching</li>
+      </ul>
     </div>
-  </section>
+    <div class="card">
+      <h3>📚 Learning</h3>
+      <ul>
+        <li>ESP32 & IoT</li>
+        <li>Blender</li>
+        <li>2D Design</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  <section id="contact">
-    <h2><span class="star">✦</span> Contact</h2>
-    <ul>
-      <li>Email: <a href="mailto:saurabhsuryawansh31@gmail.com">saurabhsuryawansh31@gmail.com</a></li>
-      <li>Instagram: <a href="https://instagram.com/saurabh_art_29" target="_blank">@saurabh_art_29</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/saurabh-suryawanshi-9a127935b" target="_blank">Saurabh Suryawanshi</a></li>
-    </ul>
-  </section>
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card"><h3>Project 1</h3></div>
+    <div class="card"><h3>Project 2</h3></div>
+  </div>
+</section>
 
-  <footer>
-    &copy; 2025 Saurabh Pitambar Suryawanshi | All Rights Reserved
-  </footer>
+<section id="blogs" class="section">
+  <h2>Blogs</h2>
+  <div class="blogs">
 
-  <script>
-    let currentProject = 0;
-    const totalProjects = 5;
+    <!-- ✅ Your Blog -->
+    <div class="card">
+      <h3>Ador Fellowship 2024 – My Experience</h3>
+      <p>A short journey of my selection and learning experience...</p>
+      <a href="./ador-fellowship.html" class="btn">Read More</a>
+    </div>
 
-function updateProjects() {
-  for (let i = 0; i < totalProjects; i++) {
-    const card = document.getElementById("project" + i);
-    card.classList.remove("active", "side", "animate");
+    <!-- Other blogs -->
+    <div class="card"><h3>Blog </h3></div>
 
-    if (i === currentProject) {
-      card.classList.add("active");
+  </div>
+</section>
 
-      // Trigger reflow to restart animation
-      void card.offsetWidth;
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <p>Email: saurabhsuryawanshi31@email.com</p>
+</section>
 
-      // Add animate class
-      card.classList.add("animate");
-    } else {
-      card.classList.add("side");
-    }
-  }
+<footer>
+  <p>© 2026 Your Name</p>
+</footer>
+
+<script>
+function toggleMode(){
+  document.body.classList.toggle("light");
 }
+</script>
 
-
-    function nextProject() {
-      currentProject = (currentProject + 1) % totalProjects;
-      updateProjects();
-    }
-
-    function prevProject() {
-      currentProject = (currentProject - 1 + totalProjects) % totalProjects;
-      updateProjects();
-    }
-  </script>
 </body>
 </html>
